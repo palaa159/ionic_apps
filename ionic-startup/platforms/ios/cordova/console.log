@@ -1,0 +1,35 @@
+objc[71399]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-17 08:06:12.780 HelloCordova[71399:70b] Cannot find executable for CFBundle 0xa340b10 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-17 08:06:12.788 HelloCordova[71399:70b] Cannot find executable for CFBundle 0xa248e10 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-17 08:06:12.834 HelloCordova[71399:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-17 08:06:12.842 HelloCordova[71399:70b] Unlimited access to network resources
+2014-07-17 08:06:12.866 HelloCordova[71399:70b] [CDVTimer][keyboard] 0.093997ms
+2014-07-17 08:06:12.867 HelloCordova[71399:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-17 08:06:12.867 HelloCordova[71399:70b] [CDVTimer][statusbar] 0.532031ms
+2014-07-17 08:06:12.868 HelloCordova[71399:70b] [CDVTimer][TotalPluginStartup] 1.612008ms
+2014-07-17 08:06:13.027 HelloCordova[71399:70b] Resetting plugins due to page load.
+2014-07-17 08:06:13.225 HelloCordova[71399:70b] Finished load of: file:///Users/aponpalanuwech/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/C8688D27-29C6-4711-8D45-8DAB35DFEAA8/HelloCordova.app/www/index.html
+Terminating in response to SpringBoard's termination.
+objc[71586]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-17 08:06:47.221 HelloCordova[71586:70b] Cannot find executable for CFBundle 0xa5732d0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-17 08:06:47.233 HelloCordova[71586:70b] Cannot find executable for CFBundle 0xa383d10 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-17 08:06:47.263 HelloCordova[71586:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-17 08:06:47.272 HelloCordova[71586:70b] Unlimited access to network resources
+2014-07-17 08:06:47.293 HelloCordova[71586:70b] [CDVTimer][keyboard] 0.084996ms
+2014-07-17 08:06:47.294 HelloCordova[71586:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-17 08:06:47.294 HelloCordova[71586:70b] [CDVTimer][statusbar] 0.563979ms
+2014-07-17 08:06:47.295 HelloCordova[71586:70b] [CDVTimer][TotalPluginStartup] 1.641989ms
+2014-07-17 08:06:47.427 HelloCordova[71586:70b] Resetting plugins due to page load.
+2014-07-17 08:06:47.681 HelloCordova[71586:70b] Finished load of: file:///Users/aponpalanuwech/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/C8688D27-29C6-4711-8D45-8DAB35DFEAA8/HelloCordova.app/www/index.html
+Terminating in response to SpringBoard's termination.
+objc[87605]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-18 18:26:58.909 HelloCordova[87605:70b] Cannot find executable for CFBundle 0xa5249c0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-18 18:26:58.916 HelloCordova[87605:70b] Cannot find executable for CFBundle 0xa473c50 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-18 18:26:58.952 HelloCordova[87605:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-18 18:26:58.997 HelloCordova[87605:70b] Unlimited access to network resources
+2014-07-18 18:26:59.130 HelloCordova[87605:70b] [CDVTimer][keyboard] 0.112951ms
+2014-07-18 18:26:59.131 HelloCordova[87605:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-18 18:26:59.131 HelloCordova[87605:70b] [CDVTimer][statusbar] 0.413001ms
+2014-07-18 18:26:59.132 HelloCordova[87605:70b] [CDVTimer][TotalPluginStartup] 1.559019ms
+2014-07-18 18:26:59.297 HelloCordova[87605:70b] Resetting plugins due to page load.
+2014-07-18 18:26:59.498 HelloCordova[87605:70b] Finished load of: file:///Users/aponpalanuwech/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/C8688D27-29C6-4711-8D45-8DAB35DFEAA8/HelloCordova.app/www/index.html
