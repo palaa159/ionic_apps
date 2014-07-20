@@ -5,8 +5,8 @@ myApp.config(['$httpProvider',
         $httpProvider.defaults.cache = true;
     }
 ]);
-myApp.run(['$ionicPlatform', 'fetchData',
-    function($ionicPlatform, fetchData) { // immediately run function
+myApp.run(['$ionicPlatform', 'Data', 'fetchData',
+    function($ionicPlatform, Data, fetchData) { // immediately run function
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -14,9 +14,10 @@ myApp.run(['$ionicPlatform', 'fetchData',
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             }
             if (window.StatusBar) {
-                StatusBar.styleDefault();
+                // StatusBar.styleDefault();
             }
             // fetch data from API
+            Data.updateData();
             fetchData.fetchAll();
         });
     }
@@ -25,15 +26,21 @@ myApp.run(['$ionicPlatform', 'fetchData',
 // Data Factory (films, cinemas, showtimes)
 myApp.factory('Data', function() {
     var Data = {
+        filterRange: localStorage.getItem('filterRange') || 10,
         films: JSON.parse(localStorage.getItem('tempFilms')) || [],
         cinemas: JSON.parse(localStorage.getItem('tempCinemas')) || [],
         showtimes: JSON.parse(localStorage.getItem('tempShowtimes')) || [],
     } || {};
     return {
         updateData: function() {
+            filterRange = localStorage.getItem('filterRange') || 10;
             Data.films = JSON.parse(localStorage.getItem('tempFilms')) || [];
             Data.cinemas = JSON.parse(localStorage.getItem('tempCinemas')) || [];
             Data.showtimes = JSON.parse(localStorage.getItem('tempShowtimes')) || [];
+        },
+        updateRange: function(newrange) {
+            Data.filterRange = localStorage.setItem('filterRange', newrange);
+            // console.log('new range: ' + localStorage.getItem('filterRange'));
         },
         data: Data
     };
@@ -53,10 +60,16 @@ myApp.factory('fetchData', ['$http', 'Data',
                     });
             },
             getCinemas: function() {
-                return $http.get('http://www.moveedoo.com/app/cinemas/fUa782_2.php')
+                var latLng = [13.726746, 100.576539];
+                return $http.get('http://www.moveedoo.com/app/cinemas/fUa782_2.php', {
+                    params: {
+                        'data[]': latLng // hahahaha
+                    }
+                })
                     .success(function(data) {
                         localStorage.setItem('tempCinemas', JSON.stringify(data));
                         Data.updateData();
+                        console.log(data);
                     });
             },
             getShowtimes: function() {
@@ -106,7 +119,7 @@ myApp.filter('findShowtimeByFilmId', ['Data', '$filter',
         return function(id) {
             var showtime = [];
             angular.forEach(Data.data.showtimes, function(v, i) {
-                if (v.film_id == id && $filter('findObjById')(v.cinema_id, Data.data.cinemas).distance < 30) {
+                if (v.film_id == id && Math.floor($filter('findObjById')(v.cinema_id, Data.data.cinemas).distance) < localStorage.getItem('filterRange')) {
                     showtime.push(v);
                 }
             });
@@ -167,16 +180,12 @@ myApp.controller('FilmDetailCtrl', ['$scope', '$stateParams', 'Data', 'Helper', 
         $scope.findObjById = function(id) {
             return $filter('findObjById')(id, Data.data.cinemas);
         };
+        $scope.range = localStorage.getItem('filterRange') || 10;
     }
 ]);
 
-myApp.controller('CinemasCtrl', ['$scope', 'fetchData', 'Data',
-    function($scope, fetchData, Data) {
-        // $scope.$watch('films', populate);
-
-        // function populate(newValue, oldValue) {
-        //     console.log('populate', newValue);
-        // }
+myApp.controller('CinemasCtrl', ['$scope', 'fetchData', 'Data', 'Helper',
+    function($scope, fetchData, Data, Helper) {
         $scope.cinemas = Data.data.cinemas;
         $scope.fetch = function() {
             fetchData.getCinemas().success(function() {
@@ -186,12 +195,19 @@ myApp.controller('CinemasCtrl', ['$scope', 'fetchData', 'Data',
                 $scope.$broadcast('scroll.refreshComplete');
             });
         };
+        $scope.go = function(path) {
+            Helper.go(path);
+            // have no idea why $location wouldn't work
+        };
     }
 ]);
 
-myApp.controller('CinemaDetailCtrl', ['$scope', 'fetchData', 'Data',
-    function($scope, fetchData, Data) {
-
+myApp.controller('CinemaDetailCtrl', ['$scope', 'fetchData', 'Data', 'Helper',
+    function($scope, fetchData, Data, Helper) {
+        $scope.go = function(path) {
+            Helper.go(path);
+            // have no idea why $location wouldn't work
+        };
     }
 ]);
 
@@ -201,8 +217,27 @@ myApp.controller('FavoritesCtrl', ['$scope', 'fetchData', 'Data',
     }
 ]);
 
-myApp.controller('SettingsCtrl', ['$scope', 'fetchData', 'Data',
-    function($scope, fetchData, Data) {
-
+myApp.controller('SettingsCtrl', ['$scope', '$ionicPopup', 'fetchData', 'Data',
+    function($scope, $ionicPopup, fetchData, Data) {
+        $scope.filterRange = localStorage.getItem('filterRange') || 10; // always = 10
+        $scope.setNewRange = function(newval) {
+            $scope.filterRange = newval;
+            return Data.updateRange($scope.filterRange);
+        };
+        $scope.clearCache = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Moveedoo',
+                template: 'Are you sure you want to clear cache?'
+            });
+            confirmPopup.then(function(res) {
+                if (res) {
+                    // console.log('You are sure');
+                    localStorage.clear();
+                    window.location.reload();
+                } else {
+                    // console.log('You are not sure');
+                }
+            });
+        };
     }
 ]);

@@ -46,6 +46,12 @@
 	font-size: 0.9em;
 }
 
+.film-detail-note {
+	font-weight: 400;
+	font-style: italic;
+	color: #b7b8b6;
+}
+
 .js-tabbed-menu {  
 	height: 35px;
     overflow:hidden;
@@ -129,10 +135,18 @@
 }
 
 .twentyPixels {
-	height: 20px;
+	height: 20px !important;
 	border: none;
 }
 
-.has-header {
-	top: 20px;
+.has-small-header {
+	top: 20px !important;
 }
+
+.misc-link {
+	color: #e43463 !important;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+/* #e43463 = pink

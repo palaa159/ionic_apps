@@ -1,5 +1,6 @@
 <ion-view>
-	<ion-content>
+	<ion-header-bar class="bar twentyPixels"></ion-header-bar>
+	<ion-content class="has-small-header">
 		<ion-refresher
 			pulling-text="Pull To Refresh ..."
 			on-refresh="fetch()"></ion-refresher>
@@ -13,7 +14,8 @@
 			<ion-item
 				class="cinema-list"
 				ng-repeat="item in cinemas | filter:search"
-				>
+				ng-show="item.cinema !== null"
+				ng-click="go('#/tab/cinemas/{{item.id}}')">
 				<!-- 
 				img_mobile
 				film

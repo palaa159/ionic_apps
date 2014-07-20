@@ -1,26 +1,45 @@
 <ion-view>
-	<ion-content>
-		<ion-refresher
-			pulling-text="Pull To Refresh ..."
-			on-refresh="fetch()"></ion-refresher>
-		<div class="bar bar-header item-input-inset">
-			<label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
-				<input type="search" placeholder="Search" ng-model="query"></label>
-			<button class="button button-clear" ng-click="query = ''">Cancel</button>
+	<ion-header-bar align-title="center" class="bar">
+		<div class="buttons">
+			<button ng-click="go('#/tab/cinemas')" class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
 		</div>
-		<ion-list>
-			<!-- showing 100/25 = 4 items -->
-			<ion-item
-				class="cinema-list"
-				ng-repeat="item in cinemas | filter:query"
-				>
-				<!-- 
-				img_mobile
-				film
-				subtitle 
-				-->
-				<div>{{item.cinema}}</div>
-			</ion-item>
-		</ion-list>
+		<h1 class="title">{{thisFilm().film}}</h1>
+		<div class="buttons">
+			<a ng-click="favorite()" class="button icon-left ion-ios7-star-outline button-clear button-dark"></a>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="film-detail-slideBox" ng-if="thisFilm().trailer !== ''">
+			<iframe id="ytplayer" type="text/html" width="100%" height="180" ng-src="{{trustSrc(youtubeUrl)}}" allowfullscreen frameborder="0"></iframe>
+		</div>
+		<div class="film-detail-slideBox" ng-if="thisFilm().trailer == ''">
+			<img ng-src="{{thisFilm().img_mobile}}" width="100%" height="180">
+		</div>
+		<div class="padding-15">
+			<span class="film-detail-tag" ng-show="thisFilm().runtime !== ''">{{thisFilm().runtime}} mins</span>
+			<span class="film-detail-tag" ng-show="thisFilm().rating !== ''">{{thisFilm().rating}}</span>
+			<span class="film-detail-tag" ng-if="thisFilm().rating == ''">Unrated</span>
+			<!-- tabbed menu -->
+			<div class="js-tabbed-menu">
+				<button class="tabbed-active">Showtimes</button>
+				<button>Synopsis</button>
+			</div>
+		</div>
+		<div class="collapsible">
+			<div ng-repeat="(cinema, showtime) in showtimes" class="showtime-cinema-container">
+				<div class="showtime-cinema-title padding-10">{{findObjById(cinema).cinema}}</div>
+				<div class="collapse">
+					<div ng-repeat="item in showtime" class="showtime-showtime-container padding-5">
+						<span class="showtime-theatre-title">{{item.theatre}}</span>
+						<span ng-show="item.lang !== ''">({{item.lang}})</span>
+						<div ng-repeat="item in item.showtime">
+							<li ng-show="item !== ''" class="showtime-list">{{item}}</li>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<p class="padding-15 film-detail-note">Listing Showtimes Within {{range}}km. Near You.</p>
+		</div>
 	</ion-content>
 </ion-view>

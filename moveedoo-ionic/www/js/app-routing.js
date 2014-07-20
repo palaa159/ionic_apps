@@ -33,6 +33,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('tabs.cinemaDetail', {
+            url: "/cinemas/:id", // :id == string followed by hash
+            views: { // container
+                'cinemas-tab': { // in what view?
+                    templateUrl: "views/cinema-detail.html",
+                    controller: 'CinemaDetailCtrl'
+                }
+            }
+        })
         .state('tabs.favorites', {
             url: "/favorites",
             views: {
