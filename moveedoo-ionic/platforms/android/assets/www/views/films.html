@@ -1,0 +1,20 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar">
+        <h1 class="title">Now Showing</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-refresher pulling-text="Pull To Refresh ..." on-refresh="refresh()" refreshing-text="Fetching New Films ..." refreshing-icon="ion-loading-b"></ion-refresher>
+        <ion-list>
+            <!-- showing 100/25 = 4 items -->
+            <ion-item class="film-list" ng-repeat="item in films" ng-click="go('#/tab/films/{{item.id}}')">
+                <img ng-src={{item.img_mobile}}>
+                <div class="padding-15">
+                    <h2 class="film-list-title">
+                        <div ng-if="item.film !== null">{{item.film}}</div>
+                        <div ng-if="item.subtitle !== null">{{item.subtitle}}</div>
+                    </h2>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

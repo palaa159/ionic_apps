@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>999A9F02-BF1E-4BC1-A490-67D1D3E2B624</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloCordova</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DD137570-0B0F-4BE0-AC3A-FB25C43FF27A</key>
+		<string>https://github.com/palaa159/ionic_apps.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ionic-startup/platforms/ios/HelloCordova.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DD137570-0B0F-4BE0-AC3A-FB25C43FF27A</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/palaa159/ionic_apps.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DD137570-0B0F-4BE0-AC3A-FB25C43FF27A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD137570-0B0F-4BE0-AC3A-FB25C43FF27A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ionic_apps</string>
+		</dict>
+	</array>
+</dict>
+</plist>

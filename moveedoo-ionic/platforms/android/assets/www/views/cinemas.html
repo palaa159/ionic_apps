@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar">
+        <h1 class="title">Cinemas</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="bar item-input-inset">
+            <label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
+                <input type="search" placeholder="Search" ng-model="search.$">
+            </label>
+            <button class="button button-clear" ng-click="search = ''">Cancel</button>
+        </div>
+        <ion-list>
+            <!-- showing 100/25 = 4 items -->
+            <ion-item class="cinema-list" ng-repeat="item in cinemas | filter:search" ng-if="item.cinema !== null" ng-click="go('#/tab/cinemas/{{item.id}}')">
+                <!-- 
+				img_mobile
+				film
+				subtitle 
+				-->
+                <div class="cinema-list-left">{{item.cinema | truncate: 23}}</div>
+                <div class="cinema-list-right">{{item.distance}} km</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

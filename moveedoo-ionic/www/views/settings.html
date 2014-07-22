@@ -1,5 +1,5 @@
 <ion-view>
-	<ion-header-bar class="bar">
+	<ion-header-bar align-title="center" class="bar">
 		<h1 class="title">Settings</h1>
 	</ion-header-bar>
 	<ion-content style="background: #f5f5f5;">
@@ -27,10 +27,11 @@
 				<input type="range" name="range" min="5" max="30" val="filterRange" ng-model="filterRange" ng-change="setNewRange(filterRange)"> <i class="icon ion-plus-round"></i>
 			</div>
 		</div>
+		<!-- <ion-toggle ng-model="notification" toggle-class="toggle-calm">Notification</ion-toggle> -->
 		<a class="item item-icon-right" href="" ng-click="clearCache()">
-			<span class="assertive">Clear Cache</span>
+			<span class="assertive">Reset App</span>
 		</a>
-		<div class="item-divider"></div>
+		<div class="padding-15 dark">ABOUT</div>
 		<a class="item item-icon-right" href="" ng-click="contact()">
 			Contact Us
 			<i class="icon ion-ios7-email-outline"></i>
@@ -41,7 +42,7 @@
 		</a>
 	</div>
 		<div class="padding-15" style="padding-top:0px">
-			Crafted with &#9903; in Bangkok and NYC by <a class="misc-link" href="">Apon Palanuwech</a> and <a class="misc-link" href="">Gordon Candelin</a>. Moveedoo<span style="font-size: 0.8em; position: relative; bottom: 3px">&copy;</span> is a hackling project from <a class="misc-link" href="">Fclty</a>.
+			Crafted with &#9903; in Bangkok and NYC by <span class="misc-link" onclick="window.open('https://twitter.com/apon_io', '_blank');">Apon Palanuwech</span> and <span class="misc-link" onclick="window.open('https://twitter.com/metaheavies', '_blank');">Gordon Candelin</span>. Moveedoo<span style="font-size: 0.8em; position: relative; bottom: 3px">&copy;</span> is a hackling project from <span class="misc-link" onclick="window.open('http://www.fclty.com', '_blank');">Fclty</span>.
 		</div>
 </ion-content>
 </ion-view>

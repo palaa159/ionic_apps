@@ -1,0 +1,41 @@
+<ion-view>
+	<ion-header-bar align-title="center" class="bar">
+		<div class="buttons">
+			<button ng-click="go('#/tab/cinemas')" class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
+		</div>
+		<h1 class="title">{{thisCinema().cinema}}</h1>
+		<div class="buttons">
+			<a ng-click="favorite()" class="button icon-left ion-ios7-star-outline button-clear button-dark"></a>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="film-detail-slideBox">
+			<div id="map_canvas"></div>
+		</div>
+		<div class="padding-15">
+			<div ng-show="thisCinema().address1" class="cinema-detail-address1">{{thisCinema().address1}}</div>
+			<div ng-show="thisCinema().address2" class="cinema-detail-address2">{{thisCinema().address2}}</div>
+			<!-- tabbed menu -->
+			<div class="js-tabbed-menu">
+				<button>Call</button>
+				<button>Website</button>
+			</div>
+		</div>
+		<!-- film list -->
+		<div class="showtime-container">
+			<div ng-repeat="(film, showtime) in showtimes" ng-show="showtime !== ''" class="showtime-cinema-container">
+				<div class="showtime-cinema-title padding-10">{{findObjById(film).film}}</div>
+				<div ng-repeat="item in showtime" class="showtime-showtime-container padding-5">
+					<span class="showtime-theatre-title">{{item.theatre}}</span>
+					<span ng-show="item.lang !== ''">({{item.lang}})</span>
+					<div ng-repeat="item in item.showtime" ng-show="item !== ''">
+						<li ng-if="item.replace(':', '') >= hhmm()" class="showtime-list">{{item}}</li>
+						<li ng-if="item.replace(':', '') < hhmm()" class="showtime-list passed">{{item}}</li>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<p ng-show="false" class="padding-15 film-detail-note">No Showtimes Available.</p>
+		</div>
+	</ion-content>
+</ion-view>

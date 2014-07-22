@@ -7,13 +7,16 @@
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/ionic.contrib.frostedGlass.css" rel="stylesheet">
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
   -->
+  <script src="js/gmaps.js"></script>
   <script src="lib/lodash/dist/lodash.min.js"></script>
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+  <script src="lib/ionic.contrib.frostedGlass.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="lib/ng-cordova.js"></script>
@@ -22,10 +25,10 @@
   <!-- your app's js -->
   <script src="js/app.js"></script>
   <script src="js/app-routing.js"></script>
+  
 </head>
 <body>
   <ion-nav-view animation="slide-left-right-ios7"></ion-nav-view>
-
   <script id="tabs.html" type="text/ng-template">
       <ion-tabs class="tabs-icon-top tabs-stable">
 
